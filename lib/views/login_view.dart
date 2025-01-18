@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../controllers/login_controller.dart';
+import '../models/user_model.dart';
+import 'profile_view.dart'; // Import ProfileView
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -172,19 +174,28 @@ class __FormContentState extends State<_FormContent> {
                     final password = _passwordController.text;
 
                     // Await the login response
-                    final response = await _loginController.login(username, password);
+                    final response =
+                        await _loginController.login(username, password);
 
                     if (response['success'] == true) {
-                      print(response['data']);
                       // Login successful
                       final userData = response['data'];
-                      // ignore: use_build_context_synchronously
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                            content:
-                                Text('Welcome, ${userData['firstName']}!')),
+                      UserModel userModel = UserModel(
+                        employeeID: userData['employeeID'],
+                        firstName: userData['firstName'],
+                        lastName: userData['lastName'],
+                        email: userData['email'],
+                        phone: userData['phone'],
                       );
-                      // Navigate to the dashboard or another page if needed
+
+                      // Navigate to ProfileView and pass the userModel
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              ProfileView(userModel: userModel),
+                        ),
+                      );
                     } else {
                       // Login failed
                       ScaffoldMessenger.of(context).showSnackBar(

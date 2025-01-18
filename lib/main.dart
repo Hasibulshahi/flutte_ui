@@ -1,19 +1,29 @@
+import 'package:flutte_ui/models/user_model.dart';
+import 'package:flutte_ui/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'views/login_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  UserModel userModel = UserModel(
+    employeeID: 100,
+    firstName: 'Hasibul',
+    lastName: 'Hassan',
+    email: 'hasibul@abc.co',
+    phone: '123565548',
+  );
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter MVC Login',
+      title: 'Flutter UI',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginView(),
+      home: ProfileView(userModel: userModel),
     );
   }
 }

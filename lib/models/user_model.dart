@@ -1,21 +1,17 @@
-// class UserModel {
-//   final String username;
-//   final String password;
-
-//   UserModel({required this.username, required this.password});
-
-//   // Mock users for demonstration purposes
-//   static List<UserModel> mockUsers() {
-//     return [
-//       UserModel(username: "test@example.com", password: "password123"),
-//       UserModel(username: "user@flutter.dev", password: "flutter2023"),
-//     ];
-//   }
-// }
-
 class UserModel {
-  String username;
-  String password;
+  int employeeID;
+  String firstName;
+  String lastName;
+  String email;
+  String phone;
 
-  UserModel({required this.username, required this.password});
+  UserModel(
+    {
+      required this.employeeID, 
+      required this.firstName, 
+      required this.lastName,
+      required this.email,
+      required this.phone
+    }
+  );
 }

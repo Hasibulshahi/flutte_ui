@@ -6,8 +6,8 @@ class LoginService {
   final String _baseUrl = 'https://localhost:7001/api'; // Replace with API base URL
 
   Future<Map<String, dynamic>> login(String username, String password) async {
-    final url =
-        Uri.parse('$_baseUrl/employee/login'); // Ensure this matches API route
+
+    final url = Uri.parse('$_baseUrl/employee/login'); // Ensure this matches API route
 
     try {
       final response = await http.post(
