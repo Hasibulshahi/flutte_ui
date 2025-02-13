@@ -4,6 +4,7 @@ class UserModel {
   String lastName;
   String email;
   String phone;
+  String password;
 
   UserModel(
     {
@@ -11,7 +12,8 @@ class UserModel {
       required this.firstName, 
       required this.lastName,
       required this.email,
-      required this.phone
+      required this.phone,
+      required this.password
     }
   );
 }

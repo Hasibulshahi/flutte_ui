@@ -1,5 +1,6 @@
 import 'package:flutte_ui/models/user_model.dart';
 import 'package:flutte_ui/views/profile_view.dart';
+import 'package:flutte_ui/views/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'views/login_view.dart';
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     lastName: 'Hassan',
     email: 'hasibul@abc.co',
     phone: '123565548',
+    password: ''
   );
 
   @override
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter UI',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: ProfileView(userModel: userModel),
+      home: const LoginView(),
     );
   }
 }

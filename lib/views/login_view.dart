@@ -1,3 +1,4 @@
+import 'package:flutte_ui/views/signup_view.dart';
 import 'package:flutter/material.dart';
 import '../controllers/login_controller.dart';
 import '../models/user_model.dart';
@@ -186,6 +187,7 @@ class __FormContentState extends State<_FormContent> {
                         lastName: userData['lastName'],
                         email: userData['email'],
                         phone: userData['phone'],
+                        password: ''
                       );
 
                       // Navigate to ProfileView and pass the userModel
@@ -208,6 +210,32 @@ class __FormContentState extends State<_FormContent> {
                   padding: EdgeInsets.all(10.0),
                   child: Text(
                     'Sign in',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+            _gap(),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4)),
+                ),
+                onPressed: () {
+                  // Navigate to ProfileView and pass the userModel
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignupPage(),
+                    ),
+                  );
+                },
+                child: const Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Text(
+                    'Sign up',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ),
